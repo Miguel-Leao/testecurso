@@ -12,16 +12,16 @@ class App extends Component {
 
     this.state = {
       name: 'Miguel Leão',
+      count: 0,
     };
   }
 
-  handlePClick(){
-    const { name } = this.state;
-    console.log(`<p> clicado ${name}`);
-  }
+  handlePClick = () => {
+    this.setState({ name: 'Sávio' });
+  };
 
   render() {
-    const { name } = this.state;
+    const { name, count } = this.state;
 
     return (
       <>
@@ -35,8 +35,8 @@ class App extends Component {
         </div>
         <h1>Vite + React</h1>
         <div className="card">
-          <button onClick={() => this.setState({ count: this.state.count + 1 })}>
-            count is {this.state.count}
+          <button onClick={() => this.setState({ count: count + 1 })}>
+            count is {count}
           </button>
           <p onClick={this.handlePClick}>
             {name}
