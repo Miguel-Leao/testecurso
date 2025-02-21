@@ -6,14 +6,23 @@ import "./App.css";
 
 //
 class App extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
+    this.handlePClick = this.handlePClick.bind(this);
+
     this.state = {
-      count: 0,
+      name: 'Miguel Leão',
     };
   }
 
+  handlePClick(){
+    const { name } = this.state;
+    console.log(`<p> clicado ${name}`);
+  }
+
   render() {
+    const { name } = this.state;
+
     return (
       <>
         <div>
@@ -29,7 +38,9 @@ class App extends Component {
           <button onClick={() => this.setState({ count: this.state.count + 1 })}>
             count is {this.state.count}
           </button>
-          <p>Edit <code>src/App.jsx</code> and save to test HMR</p>
+          <p onClick={this.handlePClick}>
+            {name}
+          </p>
         </div>
         <p className="read-the-docs">
           Click on the Vite and React logos to learn more
