@@ -6,22 +6,24 @@ import "./App.css";
 
 //
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.handlePClick = this.handlePClick.bind(this);
-
-    this.state = {
-      name: 'Miguel Leão',
+    state = {
+      name: 'Miguel Sávio',
+      counter: 0,
       count: 0,
     };
-  }
 
   handlePClick = () => {
-    this.setState({ name: 'Sávio' });
+    this.setState({ name: 'Leão' });
   };
 
+  handleAClick = (event) => {
+    event.preventDefault();
+    const {counter} = this.state;
+    this.setState({counter: counter + 1});
+  }
+
   render() {
-    const { name, count } = this.state;
+    const { name, count, counter } = this.state;
 
     return (
       <>
@@ -29,7 +31,8 @@ class App extends Component {
           <a href="https://vite.dev" target="_blank">
             <img src={viteLogo} className="logo" alt="Vite logo" />
           </a>
-          <a href="https://react.dev" target="_blank">
+          <a href="https://react.dev" target="_blank"
+          onClick={this.handleAClick}>
             <img src={reactLogo} className="logo react" alt="React logo" />
           </a>
         </div>
@@ -39,7 +42,7 @@ class App extends Component {
             count is {count}
           </button>
           <p onClick={this.handlePClick}>
-            {name}
+            {name} {counter}
           </p>
         </div>
         <p className="read-the-docs">
