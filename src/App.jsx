@@ -1,54 +1,41 @@
 import { Component } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import "./App.css";
 
 
 //
 class App extends Component {
-    state = {
-      name: 'Miguel Sávio',
-      counter: 0,
-      count: 0,
-    };
-
-  handlePClick = () => {
-    this.setState({ name: 'Leão' });
+  state = {
+    posts: [
+      {
+        id: 1,
+        title: 'O título 1',
+        body: 'O corpo 1'
+      },
+      {
+        id: 2,
+        title: 'O título 2',
+        body: 'O corpo 2'
+      },
+      {
+        id: 3,
+        title: 'O título 3',
+        body: 'O corpo 3'
+      },
+    ]
   };
 
-  handleAClick = (event) => {
-    event.preventDefault();
-    const {counter} = this.state;
-    this.setState({counter: counter + 1});
-  }
-
   render() {
-    const { name, count, counter } = this.state;
+    const { posts } = this.state;
 
     return (
-      <>
-        <div>
-          <a href="https://vite.dev" target="_blank">
-            <img src={viteLogo} className="logo" alt="Vite logo" />
-          </a>
-          <a href="https://react.dev" target="_blank"
-          onClick={this.handleAClick}>
-            <img src={reactLogo} className="logo react" alt="React logo" />
-          </a>
-        </div>
-        <h1>Vite + React</h1>
-        <div className="card">
-          <button onClick={() => this.setState({ count: count + 1 })}>
-            count is {count}
-          </button>
-          <p onClick={this.handlePClick}>
-            {name} {counter}
-          </p>
-        </div>
-        <p className="read-the-docs">
-          Click on the Vite and React logos to learn more
-        </p>
-      </>
+      <div className="App">
+        {posts.map(post => (
+          <div key={post.id}>
+            <h1>{post.title}</h1>
+            <p>{post.body}</p>
+          </div>
+        ))}
+      </div>
     );
   }
 }
