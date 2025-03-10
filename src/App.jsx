@@ -15,7 +15,7 @@ class App extends Component {
   loadPosts = async () => {
     const postsResponse = await fetch('https://jsonplaceholder.typicode.com/posts');
 
-    const photosResponse = fetch('https://jsonplaceholder.typicode.com/photos')
+    const photosResponse = await fetch('/agorafoi-photos.json')
 
     const [ posts, photos ] = await Promise.all([postsResponse, photosResponse]);
 
@@ -23,7 +23,7 @@ class App extends Component {
     const photosJson = await photos.json();
 
     const postsAndPhotos = postsJson.map((post, index) => {
-      return { ...post, cover: photosJson[index].url }
+      return { ...post, cover: photosJson[index]?.url }
     });
 
     this.setState({ posts: postsAndPhotos});
