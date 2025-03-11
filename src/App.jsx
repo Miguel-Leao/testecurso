@@ -15,7 +15,7 @@ class App extends Component {
   loadPosts = async () => {
     const postsResponse = await fetch('https://jsonplaceholder.typicode.com/posts');
 
-    const photosResponse = await fetch('/agorafoi-photos.json')
+    const photosResponse = await fetch('./output[1].json')
 
     const [ posts, photos ] = await Promise.all([postsResponse, photosResponse]);
 

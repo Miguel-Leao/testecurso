@@ -1,6 +1,9 @@
 .container {
+  max-width: 1200px;
+  margin: 0 auto;
   min-height: 100vh;
   background: #eee;
+  padding: 30px;
 }
 
 .posts {
@@ -13,6 +16,10 @@
   background: #fff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   }
+
+.post img {
+  max-width: 100%;
+}
 
 .post-content {
   padding: 30px;
