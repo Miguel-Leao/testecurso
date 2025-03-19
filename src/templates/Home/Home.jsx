@@ -29,7 +29,17 @@ export class Home extends Component {
   }
 
   loadMorePosts = () => {
-    console.log('load more posts chamado');
+    const {
+      page,
+      postsPerPage,
+      allPosts,
+      posts
+    } = this.state;
+    const nextPage = page + postsPerPage;
+    const nextPosts = allPosts.slice(nextPage, nextPage + postsPerPage);
+    posts.push(...nextPosts);
+
+    this.setState({ posts, page: nextPage });
   }
 
   render() {
@@ -39,7 +49,10 @@ export class Home extends Component {
     return (
       <section className="container">
           <Posts posts={posts} />
-          <Button text="Load More Posts"/>
+          <Button 
+            text="Load More Posts"
+            onClick={this.loadMorePosts}
+          />
         </section>
       );
     } 
