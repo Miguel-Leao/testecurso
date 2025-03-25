@@ -8,8 +8,8 @@ import './style.css';
  
      return (
        <button 
-         className='button' 
-         onClick={onClick}
+         className='button'
+          onClick={onClick}
          disabled={disabled}
        >
          {text}

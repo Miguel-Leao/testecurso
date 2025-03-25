@@ -22,7 +22,7 @@ export class Home extends Component {
   loadPosts = async () => {
     const { page, postsPerPage } = this.state
     const postsAndPhotos = await loadPosts();
-    this.setState({ 
+    this.setState({
       posts: postsAndPhotos.slice(page, postsPerPage),
       allPosts: postsAndPhotos,
     });
@@ -48,12 +48,16 @@ export class Home extends Component {
 
     return (
       <section className="container">
-          <Posts posts={posts} />
-          <Button 
+        <Posts posts={posts} />
+
+        <div class="button-container">
+          <Button
             text="Load More Posts"
             onClick={this.loadMorePosts}
+            disabled={true}
           />
-        </section>
-      );
-    } 
-  };
+        </div>
+      </section>
+    );
+  }
+};
