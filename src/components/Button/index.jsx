@@ -10,7 +10,7 @@ import './style.css';
        <button 
          className='button'
           onClick={onClick}
-         disabled={disabled}
+          disabled={disabled}
        >
          {text}
        </button>
